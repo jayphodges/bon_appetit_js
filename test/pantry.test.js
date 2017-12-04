@@ -17,12 +17,22 @@ describe("Pantry", () => {
   describe("functions", () => {
     describe("stock", () => {
       it("returns stock for pantry", () => {
-        const pantry = new Pantry("Home")
+        const pantry = new Pantry("Homes")
         expect(pantry.stock).to.eql({})
 
         pantry.restock("cheese", 10)
 
         expect(pantry.stock).to.eql({ cheese: 10 })
+      })
+    })
+
+    describe("stockCheck", () => {
+      it("returns stock for specific item", () => {
+        const pantry = new Pantry("Home")
+
+        pantry.restock("cheese", 10)
+
+        expect(pantry.stockCheck("cheese")).to.eql(10)
       })
     })
 
